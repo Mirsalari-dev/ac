@@ -1,4 +1,5 @@
-import { ToastProvider } from "@/components/Toast";
+import { ToastProvider } from "@/components/UI/Toast";
+import Footer from "@/components/UI/Footer";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -51,7 +52,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${yekanBakh.className} antialiased`}>
-        <ToastProvider>{children}</ToastProvider>
+        <ToastProvider>
+          <main>{children}</main>
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );

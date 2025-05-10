@@ -1,4 +1,4 @@
-import ClientSideDataSaver from "@/components/Providers/AppInitializer/AppInitializer";
+import AppInitializer from "@/components/Providers/AppInitializer/AppInitializer";
 import ReactQueryProvider from "@/components/Providers/reactQueryProvider/reactQueryProvider";
 import Footer from "@/components/UI/Footer/Footer";
 import Navbar from "@/components/UI/Navbar";
@@ -75,7 +75,7 @@ export default async function RootLayout({
       <ReactQueryProvider>
           <ToastProvider>
             <ToastListener />
-            <ClientSideDataSaver data={schoolData} /> 
+            <AppInitializer data={schoolData} /> 
               <Navbar />
               <main>{children}</main>
               <Footer />

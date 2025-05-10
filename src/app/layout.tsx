@@ -1,15 +1,14 @@
-import AppInitializer from "@/components/Providers/AppInitializer/AppInitializer";
+import ClientSideDataSaver from "@/components/Providers/AppInitializer/AppInitializer";
 import ReactQueryProvider from "@/components/Providers/reactQueryProvider/reactQueryProvider";
 import Footer from "@/components/UI/Footer/Footer";
 import Navbar from "@/components/UI/Navbar";
 import { ToastListener, ToastProvider } from "@/components/UI/Toast";
+import {
+  fetchSchoolData
+} from "@/services/common/fetchSchoolData";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import {
-  fetchSchoolData,
-  SchoolDataType,
-} from "@/services/common/fetchSchoolData";
 
 const yekanBakh = localFont({
   src: [
@@ -73,14 +72,13 @@ export default async function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${yekanBakh.className} antialiased`}>
-        <ReactQueryProvider>
+      <ReactQueryProvider>
           <ToastProvider>
             <ToastListener />
-            <AppInitializer initialSchoolData={schoolData}>
+            <ClientSideDataSaver data={schoolData} /> 
               <Navbar />
               <main>{children}</main>
               <Footer />
-            </AppInitializer>
           </ToastProvider>
         </ReactQueryProvider>
       </body>

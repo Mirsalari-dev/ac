@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";

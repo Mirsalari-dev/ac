@@ -1,3 +1,5 @@
+"use client";
+
 import SectionTitle from "@/components/UI/SectionTitle/SectionTitle";
 import Image from "next/image";
 import { useEffect, useState } from "react";
